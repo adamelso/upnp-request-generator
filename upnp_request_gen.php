@@ -1,3 +1,4 @@
+#!/usr/bin/env php
 <?php
 /*UPnP Request Generator - Parses description XML files from UPnP daemons and generates requests for all actions
 Daniel Crowley
