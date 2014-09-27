@@ -1,0 +1,23 @@
+{
+    "name": "archfizz/upnp-request-generator",
+    "description": "Universal Plug-and-Play request generator",
+    "require": {
+        "php": ">=5.4"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "~2.0",
+        "behat/behat": "~3.0"
+    },
+    "license": "GPLv3",
+    "authors": [
+        {
+            "name": "Adam Elsodaney",
+            "email": "adam.elso@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "config": {
+        "bin-dir": "bin"
+    },
+    "autoload": {"psr-0": {"": "src"}}
+}
