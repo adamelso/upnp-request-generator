@@ -7,6 +7,8 @@ This program is free software: you can redistribute it and/or modify it under th
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
+die("This file is disabled. Please execute `php ./upnp generate:device [url-to-description-xml-file]` instead.\n");
+
 function get_xml_file($url){
    $context = stream_context_create(array('http' => array('timeout' => 15)));
 
@@ -20,22 +22,6 @@ function get_xml_file($url){
    return simplexml_load_string($data);
 }
 
-if(!isset($_SERVER['argv'][1])){
-	die("UPnP request generator, v0.1\n".
-		"Usage: php upnp_request_gen.php <URL_TO_DESCRIPTION_XML_FILE>\n".
-		"\n".
-		"This tool will generate a series of directories and files corresponding\n".
-		"to devices, services, and actions exposed by a UPnP daemon. This tool \n".
-		"does not perform discovery of UPnP daemons. The author recommends the \n".
-		"nmap NSE scripts 'broadcast-upnp-info' and 'upnp-info' for UPnP daemon\n".
-		"discovery.\n".
-		"\n".
-		"Requests, as generated, have each variable pre-filled with the type of\n".
-		"variable value expected by the UPnP endpoint. Modify generated request\n".
-		"files before use, or load requests into a tool such as Burp Repeater in\n".
-		"order to modify variables to useful values before exercising control\n".
-		"over UPnP daemons.\n");
-}
 
 echo "Attempting to retrieve descriptor XML file...\n";
 $desc_xml = get_xml_file($_SERVER['argv'][1]);
